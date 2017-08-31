@@ -25,11 +25,11 @@ function nextMove(box) {
 }
 function switchTurn(){
 
-	if(checkForWinner(document.turn)=='Won'){		
+	if(checkForResult(document.turn)=='Won'){		
 		setMessage("Congo"+"- "+ document.turn +" "+"! you have Won the Game ");
 		document.winner = document.turn;		
 	}
-	else if(checkForWinner(document.turn)=='Draw'){
+	else if(checkForResult(document.turn)=='Draw'){
 		setMessage("Game Draw !"+"- ");
 		document.winner = document.turn;		
 	}
@@ -44,7 +44,7 @@ function switchTurn(){
 		setMessage(document.turn+"'s - Turn");		
 	}	
 }
-function checkForWinner(move) {
+function checkForResult(move) {
 	var result='None';
 	if(checkRow(1,2,3,move)||
 	   checkRow(4,5,6,move)||
@@ -56,7 +56,7 @@ function checkForWinner(move) {
 	   checkRow(3,5,7,move)){
 		result = 'Won';
 	}
-	else if (draw()){
+	else if (isDraw()){
 		result = 'Draw';
 
 	}	
@@ -73,7 +73,7 @@ function clearBox () {
 	$('.Box').each(function(){
 		$(this).text("");});
 }
-function draw() {
+function isDraw() {
 	var count ='No';
 	$(".Box").each(function(){
 		if($(this).text()==""){
