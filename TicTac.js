@@ -1,47 +1,49 @@
+var turn;
+var winner;
 function startGame () {	
-		clearBox();	
-	document.turn="X";
+		clearBox();		
+	turn="X";
 	if(Math.random() < 0.5)
-	{
-		document.turn ="O";
-	}
-	document.winner = null;
-	setMessage(document.turn +" "+ " - Get's to Start");
+	{		
+		turn="O";
+	}	
+	winner=null;
+	
+	setMessage(turn +" "+ " - Get's to Start");
 }
 function setMessage(msg) {
-	document.getElementById("message").innerText = msg;
+	$("#message").text(msg);
 }
-function nextMove(box) {
-	if(document.winner != null){		
+function nextMove(box) {	
+		if(winner != null){
 		setMessage("Game is Already Over !");		
 	}
-	else if(box.innerText == ""){		
-		box.innerText=document.turn;
+	else if($(box).text() == ""){		
+		$(box).text(turn);
 		switchTurn();			
 	}	 
 	else{	
 		setMessage("That Box is Already Set");
 	}
 }
-function switchTurn(){
-
-	if(checkForResult(document.turn)=='Won'){		
-		setMessage("Congo"+"- "+ document.turn +" "+"! you have Won the Game ");
-		document.winner = document.turn;		
-	}
-	else if(checkForResult(document.turn)=='Draw'){
+function switchTurn(){	
+	if(checkForResult(turn)=='Won'){	
+		setMessage("Congo"+"- "+ turn +" "+"! you have Won the Game ");	
+		winner = turn;
+		}
+		else if(checkForResult(turn)=='Draw'){
 		setMessage("Game Draw !"+"- ");
-		document.winner = document.turn;		
+		winner = turn;	
 	}
-	else if(document.turn =="X")
+	else if(turn =="X")
 	{ 
-		document.turn = "O";
-		setMessage(document.turn+"'s - Turn");
+		turn = "O";
+		setMessage(turn+"'s - Turn");
 	}
 	else
 	{	
-		document.turn = "X";
-		setMessage(document.turn+"'s - Turn");		
+		turn = "X";
+		setMessage(turn+"'s - Turn");		
 	}	
 }
 function checkForResult(move) {
@@ -85,5 +87,19 @@ function isDraw() {
         dict.Yes = false;
         return dict[count];
 }
+
+$(document).ready(function(){
+	startGame();
+	$(".box").click(function()
+	{
+		nextMove(this);
+	$("#Reset").click(function()
+	{
+		startGame();
+	});
+	});
+});
+
+	
 
 	

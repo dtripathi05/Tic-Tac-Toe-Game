@@ -2,33 +2,35 @@
 <head>
 	<link type="text/css" rel="stylesheet" href="TicTac.css"/>
 
-	<script type="text/javascript" src="jquery.js"></script>
-	<script type="text/javascript" src="TicTac.js"></script>
+	
 
 	<title>Tic-TAac-Toe-Game</title>
 </head>
-<body class ="Body" onload="startGame()">
-	<!-- <div class = "maindiv"> -->
+<body class ="Body"	>
 		<h1>TIC-TAC-TOE-Game</h1>
 		<h2><div id="message">Message Will Go Here</div><h2>
 		<div class = "Table">
 			<div class = "Row">
-				<div id="b1" class = "Box" onClick="nextMove(this);"></div>
-				<div id="b2" class = "Box" onClick="nextMove(this);"></div>
-				<div id="b3" class = "Box" onClick="nextMove(this);"></div>
+				<div id="b1" class = "Box" ></div>
+				<div id="b2" class = "Box" ></div>
+				<div id="b3" class = "Box" ></div>
 			</div>
 			<div class = "Row">
-				<div id="b4" class = "Box" onClick="nextMove(this);"></div>
-				<div id="b5" class = "Box" onClick="nextMove(this);"></div>
-				<div id="b6" class = "Box" onClick="nextMove(this);"></div>
+				<div id="b4" class = "Box" ></div>
+				<div id="b5" class = "Box" ></div>
+				<div id="b6" class = "Box" ></div>
 			</div>
 			<div class = "Row">
-				<div id="b7" class = "Box" onClick="nextMove(this);"></div>
-				<div id="b8" class = "Box" onClick="nextMove(this);"></div>
-				<div id="b9" class = "Box" onClick="nextMove(this);"></div>
+				<div id="b7" class = "Box" ></div>
+				<div id="b8" class = "Box" ></div>
+				<div id="b9" class = "Box" ></div>
 			</div>
 		</div>
 	</div>
-	<a class = "Reset" href="javascript:startGame();"><h2>Reset<h2></a>
+	<div id="button">
+		<button type="button" id="Reset"><h2>Reset<h2></button>	
+	</div>
 </body>
+<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="TicTac.js"></script>
 </html>
